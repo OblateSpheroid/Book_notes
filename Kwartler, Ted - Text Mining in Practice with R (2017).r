@@ -59,3 +59,20 @@ clean.corpus<-function(corpus) {
   return(corpus)
 }
 
+# Chapter 8
+install.packages('openNLP', repos = "http://cran.us.r-project.org")
+install.packages("openNLPmodels.en", repos = "http://datacube.wu.ac.at/",
+	             type = "source")
+
+# download https://github.com/kwartler/text_mining/blob/master/hillary-clinton-emails-release-2015-09-11-01-39-01.zip?raw=true
+
+persons <- Maxent_Entity_Annotator(kind = 'person')
+locations <- Maxent_Entity_Annotator(kind = 'location')
+organizations <- Maxent_Entity_Annotator(kind = 'organization')
+sent.token.annotator <- Maxent_Sent_Token_Annotator(language = "en")
+word.token.annotator <- Maxent_Word_Token_Annotator(language = "en")
+pos.tag.annotator <- Maxent_POS_Tag_Annotator(language = "en")
+
+
+
+
